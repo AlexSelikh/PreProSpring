@@ -2,6 +2,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+import javax.xml.catalog.Catalog;
+
 @Configuration
 public class AppConfig {
  
@@ -10,5 +12,13 @@ public class AppConfig {
         HelloWorld helloWorld = new HelloWorld();
         helloWorld.setMessage("Hello World!");
         return helloWorld;
+    }
+
+    @Scope("prototype")
+    @Bean(name="Cat")
+    public Cat getName(){
+        Cat cat =new Cat();
+        cat.setName("Борис");
+        return cat;
     }
 }
